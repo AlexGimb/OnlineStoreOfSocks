@@ -5,12 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.example.onlinestoreofsocks.service.Color;
 import com.example.onlinestoreofsocks.service.Size;
-import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import java.util.Objects;
 
 @Data
@@ -23,7 +20,7 @@ public class Socks {
     @Max(100)
     private int cottonPart;
     @Min(1)
-    private int quantity;
+    private int quantity = 0;
 
     @Override
     public boolean equals(Object o) {

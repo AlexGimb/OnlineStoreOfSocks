@@ -4,6 +4,7 @@ import com.example.onlinestoreofsocks.model.Socks;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+
 @Service
 public class SocksServiceImpl implements SocksService {
 
@@ -13,26 +14,55 @@ public class SocksServiceImpl implements SocksService {
     public List<Socks> getAllSocks() {
         return socksList;
     }
+
     @Override
     public Socks addSocks(Socks socks) {
         if (socksList.contains(socks)) {
-            for (int i = 0; i < socksList.size(); i++) {
-                if (socksList.get(i).equals(socks));
-                socksList.get(i).setQuantity(socksList.get(i).getQuantity() + socks.getQuantity());
+            for (Socks value : socksList) {
+                if (value.equals(socks)){
+                value.setQuantity(value.getQuantity() + socks.getQuantity());
+                }
             }
         } else {
             socksList.add(socks);
         }
         return socks;
     }
+
+    @Override
+    public int searchSocksCottonMin(Color color, Size size, int cottonMin) {
+        int searchSocks = 0;
+        for (Socks socks : socksList) {
+            if (socks.getColors().equals(color) && socks.getSize().equals(size) && socks.getCottonPart() >= cottonMin) {
+                searchSocks = socks.getQuantity();
+            } else {
+                throw new SocksInternalServerErrorException("Товар не найден");
+            }
+        }
+        return searchSocks;
+    }
+
+    @Override
+    public int searchSocksCottonMax(Color color, Size size, int cottonMax) {
+        int searchSocks = 0;
+        for (Socks socks : socksList) {
+            if (socks.getColors().equals(color) && socks.getSize().equals(size) && socks.getCottonPart() <= cottonMax) {
+                searchSocks = socks.getQuantity();
+            } else {
+                throw new SocksInternalServerErrorException("Товар не найден");
+            }
+        }
+        return searchSocks;
+    }
+
     @Override
     public Socks updateSocks(Socks socks, int quantity) {
         if (!socksList.contains(socks)) {
             throw new SocksBadRequestException("Товар не найден");
         }
-        for (int i = 0; i < socksList.size(); i++) {
-            if (socksList.get(i).equals(socks) && socksList.get(i).getQuantity() >= quantity) {
-                socksList.get(i).setQuantity(socksList.get(i).getQuantity() - quantity);
+        for (Socks value : socksList) {
+            if (value.equals(socks) && value.getQuantity() >= quantity) {
+                value.setQuantity(value.getQuantity() - quantity);
             } else {
                 throw new SocksBadRequestException("Товара не достаточно на складе");
             }
@@ -41,10 +71,17 @@ public class SocksServiceImpl implements SocksService {
     }
 
     @Override
-    public Socks removeSocks(Socks socks) {
+    public Socks removeSocks(Socks socks, int quantity) {
         if (!socksList.contains(socks)) {
             throw new SocksBadRequestException("Товар не найден");
-        }  socksList.remove(socks);
+        }
+        for (Socks value : socksList) {
+            if (value.equals(socks) && value.getQuantity() >= quantity) {
+                value.setQuantity(value.getQuantity() - quantity);
+            } else {
+                throw new SocksBadRequestException("Товара не достаточно на складе");
+            }
+        }
         return socks;
     }
 }
