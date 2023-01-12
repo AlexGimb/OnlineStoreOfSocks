@@ -25,17 +25,17 @@ public class SocksController {
         return this.socksService.getAllSocks();
     }
 
-    @GetMapping("/search/{min}")
+    @GetMapping("/search/min/{min}")
     @Operation(summary = "Поиск носков с долей хлопка менее ",
             description = "Поиск носков с долей хлопка больше чем cottonMin")
-    public int searchSocksCottonMin(@RequestParam Color color,@RequestParam Size size, @PathVariable("min") int cottonMin) {
+    public Socks searchSocksCottonMin(@RequestParam Color color, @RequestParam Size size, @PathVariable("min") int cottonMin) {
         return this.socksService.searchSocksCottonMin(color, size, cottonMin);
     }
 
-    @GetMapping("/search/{max}")
+    @GetMapping("/search/max/{max}")
     @Operation(summary = "Поиск носков с долей хлопка более ",
             description = "Поиск носков с долей хлопка меньше чем cottonMax")
-    public int searchSocksCottonMax(@RequestParam Color color,@RequestParam Size size, @PathVariable("max") int cottonMax) {
+    public Socks searchSocksCottonMax(@RequestParam Color color, @RequestParam Size size, @PathVariable("max") int cottonMax) {
         return this.socksService.searchSocksCottonMax(color, size, cottonMax);
     }
 

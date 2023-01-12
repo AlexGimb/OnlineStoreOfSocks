@@ -9,9 +9,9 @@ public interface SocksService {
 
     Socks addSocks(Socks socks);
 
-    int searchSocksCottonMin(Color color, Size size, int cottonMin);
+    Socks searchSocksCottonMin(Color color, Size size, int cottonMin);
 
-    int searchSocksCottonMax(Color color, Size size, int cottonMax);
+    Socks searchSocksCottonMax(Color color, Size size, int cottonMax);
 
     Socks updateSocks(Socks socks, int quantity);
 

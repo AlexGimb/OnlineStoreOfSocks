@@ -30,11 +30,11 @@ public class SocksServiceImpl implements SocksService {
     }
 
     @Override
-    public int searchSocksCottonMin(Color color, Size size, int cottonMin) {
-        int searchSocks = 0;
+    public Socks searchSocksCottonMin(Color color, Size size, int cottonMin) {
+        Socks searchSocks = null;
         for (Socks socks : socksList) {
             if (socks.getColors().equals(color) && socks.getSize().equals(size) && socks.getCottonPart() >= cottonMin) {
-                searchSocks = socks.getQuantity();
+                searchSocks = socks;
             } else {
                 throw new SocksInternalServerErrorException("Товар не найден");
             }
@@ -43,11 +43,11 @@ public class SocksServiceImpl implements SocksService {
     }
 
     @Override
-    public int searchSocksCottonMax(Color color, Size size, int cottonMax) {
-        int searchSocks = 0;
+    public Socks searchSocksCottonMax(Color color, Size size, int cottonMax) {
+        Socks searchSocks = null;
         for (Socks socks : socksList) {
             if (socks.getColors().equals(color) && socks.getSize().equals(size) && socks.getCottonPart() <= cottonMax) {
-                searchSocks = socks.getQuantity();
+                searchSocks = socks;
             } else {
                 throw new SocksInternalServerErrorException("Товар не найден");
             }
