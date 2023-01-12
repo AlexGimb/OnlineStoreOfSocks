@@ -32,10 +32,10 @@ public class SocksController {
         return this.socksService.searchSocksCottonMin(color, size, cottonMin);
     }
 
-    @GetMapping("/search/{min}")
+    @GetMapping("/search/{max}")
     @Operation(summary = "Поиск носков с долей хлопка более ",
             description = "Поиск носков с долей хлопка меньше чем cottonMax")
-    public int searchSocksCottonMax(@RequestParam Color color,@RequestParam Size size, @PathVariable("min") int cottonMax) {
+    public int searchSocksCottonMax(@RequestParam Color color,@RequestParam Size size, @PathVariable("max") int cottonMax) {
         return this.socksService.searchSocksCottonMax(color, size, cottonMax);
     }
 
