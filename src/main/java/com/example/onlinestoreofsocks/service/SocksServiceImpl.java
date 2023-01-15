@@ -132,8 +132,8 @@ public class SocksServiceImpl implements SocksService {
         saveFileSocks();
         return socks;
     }
-
-    private void saveFileSocks() {
+    @Override
+    public void saveFileSocks() {
         try {
             String json = new ObjectMapper().writeValueAsString(socksList);
             fileService.saveFileSocks(json);
@@ -141,7 +141,7 @@ public class SocksServiceImpl implements SocksService {
             throw new FileSocksException("Ошибка сохранения файла");
         }
     }
-
+    @Override
     public void readFileSocks() {
         try {
             String json = fileService.readFromFileSocks();
@@ -151,7 +151,7 @@ public class SocksServiceImpl implements SocksService {
             throw new FileSocksException("Ошибка чтения файла");
         }
     }
-
+    @Override
     public Path createSocksPathReport() throws IOException {
         Path path = fileService.createTempFile("AllSocks");
         for (Socks sock : socksList) {
@@ -169,7 +169,8 @@ public class SocksServiceImpl implements SocksService {
         }
         return path;
     }
-    private void saveFileDefect() {
+    @Override
+    public void saveFileDefect() {
         try {
             String json = new ObjectMapper().writeValueAsString(defectiveSocksList);
             fileService.saveFileDefect(json);
@@ -178,6 +179,7 @@ public class SocksServiceImpl implements SocksService {
         }
     }
 
+    @Override
     public void readFileDefect() {
         try {
             String json = fileService.readFromFileDefect();

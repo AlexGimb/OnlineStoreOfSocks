@@ -3,6 +3,7 @@ package com.example.onlinestoreofsocks.controller;
 import com.example.onlinestoreofsocks.model.Socks;
 import com.example.onlinestoreofsocks.model.Color;
 import com.example.onlinestoreofsocks.model.Size;
+import com.example.onlinestoreofsocks.service.SocksService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -23,7 +24,7 @@ import java.util.List;
 @Validated()
 @RequestMapping("api/socks")
 public class SocksController {
-    private final SocksServiceImpl socksService;
+    private final SocksService socksService;
     public SocksController(SocksServiceImpl socksService) {
         this.socksService = socksService;
     }

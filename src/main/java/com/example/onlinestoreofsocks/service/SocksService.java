@@ -4,6 +4,8 @@ import com.example.onlinestoreofsocks.model.Color;
 import com.example.onlinestoreofsocks.model.Size;
 import com.example.onlinestoreofsocks.model.Socks;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.List;
 
 public interface SocksService {
@@ -20,4 +22,14 @@ public interface SocksService {
     Socks updateSocks(Socks socks, int quantity);
 
     Socks removeSocks(Socks socks, int quantity);
+
+    void saveFileSocks();
+
+    void readFileSocks();
+
+    Path createSocksPathReport() throws IOException;
+
+    void saveFileDefect();
+
+    void readFileDefect();
 }

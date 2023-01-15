@@ -1,5 +1,6 @@
 package com.example.onlinestoreofsocks.controller;
 
+import com.example.onlinestoreofsocks.service.FileService;
 import com.example.onlinestoreofsocks.service.FileServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -19,7 +20,7 @@ import java.io.*;
 @RequestMapping("/files")
 @Tag(name = "Импорт, экспорт файлов", description = "Импорт и экспорт файлов")
 public class FileController {
-    private final FileServiceImpl fileService;
+    private final FileService fileService;
 
     public FileController(FileServiceImpl fileService) {
         this.fileService = fileService;
