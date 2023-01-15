@@ -3,8 +3,6 @@ package com.example.onlinestoreofsocks.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.example.onlinestoreofsocks.service.Color;
-import com.example.onlinestoreofsocks.service.Size;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

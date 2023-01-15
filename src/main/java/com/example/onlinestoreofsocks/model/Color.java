@@ -1,4 +1,4 @@
-package com.example.onlinestoreofsocks.service;
+package com.example.onlinestoreofsocks.model;
 
 public enum Color {
     BLACK("Черные"),

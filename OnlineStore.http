@@ -1,5 +1,5 @@
 ### Добавление новых носков на склад
-POST http://localhost:8080/socks
+POST http://localhost:8080/api/socks
 Content-Type: application/json
 
 {
@@ -10,7 +10,7 @@ Content-Type: application/json
 }
 
 ### Добавление новых носков на склад
-POST http://localhost:8080/socks
+POST http://localhost:8080/api/socks
 Content-Type: application/json
 
 {
@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ### Добавление новых носков на склад
-POST http://localhost:8080/socks
+POST http://localhost:8080/api/socks
 Content-Type: application/json
 
 {
@@ -32,7 +32,7 @@ Content-Type: application/json
 }
 
 ### Добавление новых носков на склад
-POST http://localhost:8080/socks
+POST http://localhost:8080/api/socks
 Content-Type: application/json
 
 {
@@ -43,7 +43,7 @@ Content-Type: application/json
 }
 
 ### Добавление новых носков на склад
-POST http://localhost:8080/socks
+POST http://localhost:8080/api/socks
 Content-Type: application/json
 
 {
@@ -54,7 +54,7 @@ Content-Type: application/json
 }
 
 ### Добавление новых носков на склад
-POST http://localhost:8080/socks
+POST http://localhost:8080/api/socks
 Content-Type: application/json
 
 {
@@ -65,56 +65,13 @@ Content-Type: application/json
 }
 
 ### Получить список всех носков на складе
-GET http://localhost:8080/socks
+GET http://localhost:8080/api/socks/
+
+### Получить список всех дефектных носков на складе
+GET http://localhost:8080/api/socks/defect/
 
 ### Отгрузить носки со склада
-PUT http://localhost:8080/socks/
+PUT http://localhost:8080/api/socks
 
 ### Удаление носков
-DELETE http://localhost:8080/socks
-
-{
-  "colors": "BLACK",
-  "size": "XS",
-  "cottonPart": 50,
-  "quantity": 10
-}
-
-### Добавление новых носков на склад
-{
-  "colors": "BLACK",
-  "size": "XS",
-  "cottonPart": 50,
-  "quantity": 10
-},
-{
-  "colors": "WHITE",
-  "size": "S",
-  "cottonPart": 70,
-  "quantity": 20
-},
-{
-  "colors": "RED",
-  "size": "M",
-  "cottonPart": 30,
-  "quantity": 30
-},
-{
-  "colors": "GREEN",
-  "size": "L",
-  "cottonPart": 90,
-  "quantity": 25
-},
-{
-  "colors": "YELLOW",
-  "size": "XL",
-  "cottonPart": 60,
-  "quantity": 35
-},
-{
-  "colors": "BLUE",
-  "size": "XXL",
-  "cottonPart": 40,
-  "quantity": 0
-}
-
+DELETE http://localhost:8080/api/socks
