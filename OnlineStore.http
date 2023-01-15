@@ -1,0 +1,77 @@
+### Добавление новых носков на склад
+POST http://localhost:8080/api/socks
+Content-Type: application/json
+
+{
+  "colors": "BLACK",
+  "size": "XS",
+  "cottonPart": 50,
+  "quantity": 10
+}
+
+### Добавление новых носков на склад
+POST http://localhost:8080/api/socks
+Content-Type: application/json
+
+{
+  "colors": "WHITE",
+  "size": "S",
+  "cottonPart": 70,
+  "quantity": 20
+}
+
+### Добавление новых носков на склад
+POST http://localhost:8080/api/socks
+Content-Type: application/json
+
+{
+  "colors": "RED",
+  "size": "M",
+  "cottonPart": 30,
+  "quantity": 30
+}
+
+### Добавление новых носков на склад
+POST http://localhost:8080/api/socks
+Content-Type: application/json
+
+{
+  "colors": "GREEN",
+  "size": "L",
+  "cottonPart": 90,
+  "quantity": 25
+}
+
+### Добавление новых носков на склад
+POST http://localhost:8080/api/socks
+Content-Type: application/json
+
+{
+  "colors": "YELLOW",
+  "size": "XL",
+  "cottonPart": 60,
+  "quantity": 35
+}
+
+### Добавление новых носков на склад
+POST http://localhost:8080/api/socks
+Content-Type: application/json
+
+{
+  "colors": "BLUE",
+  "size": "XXL",
+  "cottonPart": 40,
+  "quantity": 10
+}
+
+### Получить список всех носков на складе
+GET http://localhost:8080/api/socks/
+
+### Получить список всех дефектных носков на складе
+GET http://localhost:8080/api/socks/defect/
+
+### Отгрузить носки со склада
+PUT http://localhost:8080/api/socks
+
+### Удаление носков
+DELETE http://localhost:8080/api/socks
